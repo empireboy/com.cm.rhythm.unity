@@ -1,0 +1,16 @@
+{
+    "name": "CM.Rhythm.Unity",
+    "references": [
+        "GUID:355a8e16ae996114995d49fd318b499c",
+        "GUID:85bf747841bd0644bbfc5cabc682bbe7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

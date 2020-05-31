@@ -1,0 +1,17 @@
+{
+    "name": "CM.Rhythm.Unity.Editor",
+    "references": [
+        "GUID:b75bb64edddad1b458257852cccb4f35"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
