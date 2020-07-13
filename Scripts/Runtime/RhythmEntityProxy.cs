@@ -23,24 +23,10 @@ namespace CM.Rhythm
 		[Header("References")]
 
 		[SerializeField]
-		private AudioSource _audioSource;
+		private AudioSource _audioSource = null;
 
-		private RhythmEntityUnity _entity;
-		private RhythmEntityUpdater<AudioSource> _entityUpdater;
-
-		private void Start()
-		{
-			_entity = new RhythmEntityUnity(_audioSource);
-			_entityUpdater = new RhythmEntityUpdaterUnity(_entity);
-		}
-
-		private void Update()
-		{
-			if (!_entity.IsPlaying)
-				return;
-
-			_entityUpdater.Update();
-		}
+		private RhythmEntityUnity _entity = null;
+		private RhythmEntityCommandUpdater<AudioSource> _entityUpdater = null;
 
 		public void Play()
 		{
@@ -60,6 +46,22 @@ namespace CM.Rhythm
 		public void Stop()
 		{
 			_entity.Stop();
+		}
+
+		public void LoadBeatCommands(BeatCommand[] beatCommands)
+		{
+			_entityUpdater = new RhythmEntityCommandUpdater<AudioSource>(_entity, beatCommands);
+		}
+
+		private void Start()
+		{
+			_entity = new RhythmEntityUnity(_audioSource);
+		}
+
+		private void Update()
+		{
+			if (_entity.IsPlaying)
+				_entityUpdater.Update();
 		}
 	}
 }
