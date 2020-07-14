@@ -45,7 +45,7 @@ namespace CM.Rhythm
 		private AudioSource _audioSource = null;
 
 		private RhythmEntityUnity _entity = null;
-		private RhythmEntityCommandUpdater<AudioSource> _entityUpdater = null;
+		private RhythmEntityCommandUpdater _entityUpdater = null;
 
 		/// <summary>
 		/// Plays the audio from the beginning.
@@ -89,7 +89,7 @@ namespace CM.Rhythm
 		/// <param name="beatCommands">An array of BeatCommand classes that need to be executed when the audio is playing.</param>
 		public void LoadBeatCommands(BeatCommand[] beatCommands)
 		{
-			_entityUpdater = new RhythmEntityCommandUpdater<AudioSource>(_entity, beatCommands);
+			_entityUpdater = new RhythmEntityCommandUpdater(_entity, beatCommands);
 		}
 
 		private void Start()
