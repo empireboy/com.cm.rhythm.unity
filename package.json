@@ -1,12 +1,13 @@
 {
     "name": "com.cm.rhythm.unity",
     "displayName": "CM Rhythm Unity",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "unity": "2019.3",
     "author": "Casper Meloen",
     "description": "CM Rhythm Unity is a Unity package for music applications that use a rhythm mechanic.",
     "dependencies": {
-        "com.cm.rhythm": "https://github.com/empireboy/com.cm.rhythm.git"
+        "com.cm.rhythm": "https://github.com/empireboy/com.cm.rhythm.git",
+        "com.cm.designpatterns": "https://github.com/empireboy/com.cm.designpatterns.git"
     },
     "repository": {
         "type": "git",
