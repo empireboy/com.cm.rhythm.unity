@@ -2,33 +2,55 @@
 
 namespace CM.Rhythm
 {
-	public sealed class RhythmEntityUnity : RhythmEntity<AudioSource>
+	/// <summary>
+	/// Implementation of a Unity audio player.
+	/// </summary>
+	internal sealed class RhythmEntityUnity : RhythmEntity
 	{
-		public override float Time => Audio.time;
-		public override float TotalTime => Audio.clip.length;
-		public override bool IsPlaying => Audio.isPlaying;
+		/// <summary>
+		/// The current time in seconds of the audio.
+		/// </summary>
+		public override float Time => _audioSource.time;
 
-		public RhythmEntityUnity(AudioSource audio) : base(audio)
+		/// <summary>
+		/// The total time in seconds of the audio.
+		/// </summary>
+		public override float TotalTime => _audioSource.clip.length;
+
+		/// <summary>
+		/// True if the audio is playing.
+		/// </summary>
+		public override bool IsPlaying => _audioSource.isPlaying;
+
+		private AudioSource _audioSource = null;
+
+		/// <summary>
+		/// Constructor of the RhythmEntityUnity.
+		/// </summary>
+		/// <param name="audioSource">The AudioSource component used to play and stop audio.</param>
+		public RhythmEntityUnity(AudioSource audioSource)
 		{
-			
+			_audioSource = audioSource;
 		}
 
 		protected override void OnPlay()
 		{
-			Audio.time = 0;
+			_audioSource.time = 0;
 
-			if (!Audio.isPlaying)
-				Audio.Play();
+			if (_audioSource.isPlaying)
+				return;
+
+			_audioSource.Play();
 		}
 
 		protected override void OnPlayAt(float time)
 		{
-			Audio.time = time;
+			_audioSource.time = time;
 
-			if (Audio.isPlaying)
+			if (_audioSource.isPlaying)
 				return;
 
-			Audio.Play();
+			_audioSource.Play();
 		}
 
 		protected override void OnStop()
@@ -36,7 +58,7 @@ namespace CM.Rhythm
 			if (!IsPlaying)
 				return;
 
-			Audio.Stop();
+			_audioSource.Stop();
 		}
 	}
 }
