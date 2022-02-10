@@ -1,4 +1,4 @@
-# CM Rhythm Unity V0.2.0
+# CM Rhythm Unity v0.2.0
 
 CM Rhythm Unity is a Unity package for music applications that use a rhythm mechanic.
 
